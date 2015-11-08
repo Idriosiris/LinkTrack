@@ -3,15 +3,10 @@ function sortByDate($a, $b){
     return strtotime($a->Date)-strtotime($b->Date); 
 }
 
-$articles = array("http://www.theguardian.com/world/2015/sep/04/syrian-refugee-crisis-why-has-it-become-so-bad",
-                  "http://www.bbc.co.uk/news/world-europe-34131911",
-                  "http://www.huffingtonpost.co.uk/2015/09/04/rich-arab-nations-syria-refugees_n_8089414.html",
-                  "http://www.independent.co.uk/news/world/europe/refugee-crisis-migrants-map-shows-how-europe-is-becoming-a-fortress-to-keep-people-ou-a6707986.html",
-                  "http://news.sky.com/story/1562525/uk-deeply-divided-over-letting-in-refugees");
+$articles = array("http://www.huffingtonpost.co.uk/2015/09/04/rich-arab-nations-syria-refugees_n_8089414.html");
 
 
 for ($i = 0; $i < count($articles); $i++) {
-//    $source = $articles[$i];
     $source = "http://api.majestic.com/api/json?app_api_key=96CA2AAC8EC2F73FA1365D69BED49B1D&cmd=GetBackLinkData&item=$articles[$i]&Count=50000&datasource=fresh";
     $json = file_get_contents($source);
     $decodedJson = json_decode($json);
